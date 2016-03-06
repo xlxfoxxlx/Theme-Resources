@@ -18,16 +18,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <ListView
         android:id="@+id/alarms_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="10dip"
-        android:scrollbars="none"
+        android:paddingBottom="@dimen/button_footer_height"
+        android:clipToPadding="false"
+        android:descendantFocusability="beforeDescendants"
         android:divider="@null"
-        android:clipToPadding="false" />
+        android:dividerHeight="0dip"
+        />
 
     <TextView
         android:id="@+id/alarms_empty_view"
@@ -36,9 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="@string/no_alarms"
-        android:drawableTop="@drawable/ic_noalarms_black"
-        android:textColor="@color/no_alarms_text_color"
-        android:text="@string/no_alarms" />
+        android:drawableTop="@drawable/ic_noalarms"
+        android:gravity="center"
+        android:text="@string/no_alarms"
+        android:textColor="#4cffffff"
+        android:paddingBottom="88dp" />
 
     <FrameLayout android:id="@+id/undo_frame"
         android:layout_width="match_parent"
@@ -47,11 +51,29 @@
         <com.android.deskclock.widget.ActionableToastBar
             android:id="@+id/undo_bar"
             android:layout_width="match_parent"
-            android:layout_height="48dip"
+            android:layout_height="64dip"
             android:layout_gravity="bottom"
             android:layout_marginBottom="96dp"
-            android:paddingStart="@dimen/alarm_undo_bar_horizontal_margin"
-            android:paddingEnd="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginLeft="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginStart="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginRight="@dimen/alarm_undo_bar_horizontal_margin"
+            android:layout_marginEnd="@dimen/alarm_undo_bar_horizontal_margin"
             style="@style/ToastBarStyle" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/alarms_footer_view"
+        android:layout_width="@dimen/footer_button_size"
+        android:layout_height="@dimen/footer_button_size"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/footer_button_layout_margin" >
+        <ImageButton
+            android:id="@+id/menu_button"
+            style="?attr/actionOverflowButtonStyle"
+            android:layout_gravity="end|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:accessibilityTraversalAfter="@+id/fab"
+            android:contentDescription="@string/button_menu" />
     </FrameLayout>
 </FrameLayout>

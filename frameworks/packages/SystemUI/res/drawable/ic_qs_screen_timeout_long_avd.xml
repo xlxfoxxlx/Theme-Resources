@@ -3,8 +3,8 @@
     android:drawable="@drawable/ic_qs_screen_timeout_vector">
 
     <target
-    android:animation="@anim/ic_qs_screen_timeout_medtoshort"
-    android:name="time2"/>
+        android:animation="@anim/ic_qs_screen_timeout_medtoshort"
+        android:name="time2"/>
 
     <target
         android:animation="@anim/ic_qs_screen_timeout_longtoshort"

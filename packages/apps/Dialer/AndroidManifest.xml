@@ -55,13 +55,11 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- This tells the activity manager to not delay any of our activity
      start requests, even if they happen immediately after the user
      presses home. -->
     <uses-permission android:name="android.permission.STOP_APP_SWITCHES" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name="DialerApplication"
@@ -70,7 +68,7 @@
         android:hardwareAccelerated="true"
         android:supportsRtl="true"
         android:backupAgent='com.android.dialer.DialerBackupAgent'
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="false">
 
         <meta-data android:name="com.google.android.backup.api_key"
             android:value="AEdPqrEAAAAIBXgtCEKQ6W0PXVnW-ZVia2KmlV2AxsTw3GjAeQ" />
@@ -260,16 +258,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".SpeedDialListActivity"
-            android:theme="@style/DialtactsTheme"
-            android:label="@string/speed_dial_settings"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.android.phone.action.SPEED_DIAL_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
-
         <receiver android:name=".interactions.UndemoteOutgoingCallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
@@ -318,11 +306,5 @@
                 <action android:name="android.telecom.InCallService"/>
             </intent-filter>
         </service>
-
-        <provider android:name="com.android.dialer.lookup.LookupProvider"
-                  android:authorities="com.android.dialer.provider"
-                  android:exported="false"
-                  android:multiprocess="false" />
-
     </application>
 </manifest>

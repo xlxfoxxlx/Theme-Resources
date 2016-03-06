@@ -62,14 +62,14 @@
 
         <TextView
             android:id="@+id/calendar_name"
-            style="@style/TextAppearance.SelectCalendar_Name"
+            style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/color"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:textSize="16sp" />
+            android:textColor="#333333" />
 
         <TextView
             android:id="@+id/account_name"
@@ -79,7 +79,8 @@
             android:layout_below="@id/calendar_name"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/calendar_owner_text_color" />
     </RelativeLayout>
 
 </LinearLayout>

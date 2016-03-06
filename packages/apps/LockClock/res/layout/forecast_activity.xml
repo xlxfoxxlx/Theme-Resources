@@ -195,17 +195,7 @@
                 android:orientation="horizontal"
                 android:layoutDirection="locale"
                 android:measureWithLargestChild="true">
-                <!--#LockClockEnhance added settings button-->
-                <Button android:id="@+id/weather_settings"
-                    android:layout_width="0dip"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:maxLines="2"
-                    android:text="@string/menu_weather_settings"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textSize="14sp"
-                    android:minHeight="48dp"
-                    android:layout_height="wrap_content" />
+
                 <Button android:id="@+id/button"
                     android:layout_width="0dip"
                     android:layout_gravity="center_horizontal"

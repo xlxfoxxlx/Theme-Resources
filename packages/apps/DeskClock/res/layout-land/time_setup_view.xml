@@ -20,7 +20,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/footer_button_size"
         android:orientation="horizontal">
 
         <!-- This nested ltr layout cannot be combined with the parent because
@@ -30,9 +29,11 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_marginBottom="@dimen/footer_button_size"
             android:layoutDirection="ltr"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <com.android.deskclock.timer.TimerView
                 android:id="@+id/timer_time_text"
@@ -50,15 +51,15 @@
                     android:layout_marginStart="@dimen/timer_setup_delete_start_margin"
                     android:padding="@dimen/timer_setup_delete_padding"
                     android:contentDescription="@string/timer_delete"
-                    android:src="@drawable/ic_backspace"
-                    android:background="?android:attr/selectableItemBackgroundBorderless" />
+                    android:scaleType="center"
+                    android:src="@drawable/ic_backspace" />
 
             </com.android.deskclock.timer.TimerView>
 
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="2dip"
+                android:layout_height="1dip"
                 android:layout_marginBottom="8dip"
                 android:background="@color/dialog_gray" />
 
@@ -68,7 +69,7 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <include
                 android:id="@+id/first"
@@ -86,5 +87,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <include layout="@layout/timer_cancel_button" />
 
 </FrameLayout>

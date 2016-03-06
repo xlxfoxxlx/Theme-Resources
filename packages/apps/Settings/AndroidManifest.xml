@@ -49,7 +49,6 @@
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
     <uses-permission android:name="android.permission.BATTERY_STATS"/>
-    <uses-permission android:name="android.permission.RESET_BATTERY_STATS"/>
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MOVE_PACKAGE" />
@@ -1103,7 +1102,6 @@
             </intent-filter>
         </activity>
 
-        <!--
         <activity android:name="Settings$AppOpsSummaryActivity"
                 android:label="@string/app_ops_settings"
                 android:taskAffinity=""
@@ -1120,7 +1118,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/application_settings" />
         </activity>
-        -->
 
         <activity android:name="Settings$LocationSettingsActivity"
                 android:label="@string/location_settings_title"
@@ -1890,6 +1887,9 @@
         </activity>
 
 
+        <activity android:name=".benzo.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".benzo.gestureanywhere.GestureAnywhereCreateGestureActivity" />   
+
         <!-- Development settings -->
 
         <!-- DeviceInfo adds the user's requested build to stats upload.  -->
@@ -1952,13 +1952,6 @@
                  <data android:scheme="android_secret_code" android:host="4636" />
             </intent-filter>
        </receiver>
-
-        <!-- Hotspot idle -->
-        <service android:name=".wifi.HotspotService" >
-            <intent-filter>
-                <action android:name="com.android.settings.wifi.HotspotService" />
-            </intent-filter>
-        </service>
 
         <!-- Standard picker for widgets -->
         <activity android:name="AppWidgetPickActivity"
@@ -2139,22 +2132,6 @@
             android:launchMode="singleTop"
             android:theme="@style/CryptKeeperBlankTheme"
         />
-
-        <!-- Display rotation -->
-        <activity android:name="Settings$DisplayRotationActivity"
-                android:label="@string/display_rotation_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.settings.DISPLAY_ROTATION_SETTINGS" />
-                <action android:name="com.android.settings.DISPLAY_ROTATION_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.du.DisplayRotation" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/display_settings" />
-        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -2475,17 +2452,29 @@
 
         <!-- Expanded desktop settings activity. -->
         <activity android:name="Settings$ExpandedDesktopSettingsActivity"
-                android:label="@string/expanded_desktop_category"
+                android:label="@string/power_menu_expanded_desktop"
                 android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.dirtyunicorns.dutweaks.fragments.ExpandedDesktop" />
+                android:value="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/dirtytweaks" />
+                android:resource="@id/display_settings" />
         </activity>
+
+        <!-- Keep compatibility with old shortcuts. -->
+        <activity-alias android:name=".applications.ExpandedDesktopPreferenceFragment"
+                  android:label="@string/power_menu_expanded_desktop"
+                  android:clearTaskOnLaunch="true"
+                  android:exported="true"
+                  android:targetActivity="Settings$ExpandedDesktopSettingsActivity">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity-alias>
 
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
         <receiver android:name=".users.ProfileUpdateReceiver">
@@ -2558,126 +2547,6 @@
                        android:resource="@id/wireless_settings" />
         </activity>
 
-        <!-- Start of DU activities -->
-
-        <!-- DU Extra info -->
-        <activity android:name="com.android.settings.du.extrainfo.MainActivity"
-                  android:theme="@style/Theme.Material.Light.Dialog.NoActionBar.MinWidth">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="Settings$DirtyTweaksActivity"
-            android:label="@string/custom_title"
-            android:taskAffinity="">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.dirtyunicorns.dutweaks.DirtyTweaks" />
-        </activity>
-
-        <activity android:name="us.zamzow.mazwoz.dirtyunicornschangelog.MainActivity"
-                  android:label="@string/du_app_name"/>
-        <activity android:name="us.zamzow.mazwoz.dirtyunicornschangelog.ListVersions"/>
-        <activity android:name="us.zamzow.mazwoz.dirtyunicornschangelog.ChangeList"/>
-
-        <receiver android:name="com.dirtyunicorns.dutweaks.fragments.AdBlocker_IntentReceiver" >
-            <intent-filter>
-                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name="com.android.settings.du.OnBoot">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.dirtyunicorns.dutweaks.fragments.AdBlocker_CheckHosts" />
-        <activity android:name="com.dirtyunicorns.dutweaks.fragments.Traffic" />
-
-        <activity android:name="com.dirtyunicorns.dutweaks.fragments.SystemappRemover" />
-
-        <activity android:name="com.dirtyunicorns.dutweaks.fragments.GestureAnywhereBuilderActivity" />
-        <activity android:name="com.dirtyunicorns.dutweaks.fragments.GestureAnywhereCreateGestureActivity" />
-
-        <activity android:name="com.dirtyunicorns.dutweaks.fragments.HeadsUpSettings" />
-
-        <!-- Navigation settings activity. -->
-        <activity android:name="Settings$NavigationSettingsActivity"
-                android:label="@string/navigation_category"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.dirtyunicorns.dutweaks.fragments.NavbarSettings" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/dirtytweaks" />
-        </activity>
-
-        <!-- Navigation settings activity. -->
-        <activity android:name="Settings$SmartbarSettingsActivity"
-                android:label="@string/smartbar_settings_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.dirtyunicorns.dutweaks.fragments.SmartbarSettings" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/dirtytweaks" />
-        </activity>
-
-        <!-- Navigation settings activity. -->
-        <activity android:name="Settings$FlingSettingsActivity"
-                android:label="@string/fling_settings"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.dirtyunicorns.dutweaks.fragments.FlingSettings" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/dirtytweaks" />
-        </activity>
-
-       <!-- System action picker -->
-        <activity android:name="com.dirtyunicorns.dutweaks.ActionPickerDialogActivity"
-                android:theme="@style/Theme.SettingsDialog"
-                android:label="@string/choose_action_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-       <!-- Icon pack picker -->
-        <activity android:name="com.dirtyunicorns.dutweaks.IconPickerActivity"
-                android:theme="@style/Theme.SettingsDialog"
-                android:label="@string/icon_pack_picker_dialog_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-       <!-- Icon pack grid -->
-        <activity android:name="com.dirtyunicorns.dutweaks.IconPackGridActivity"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- End of DU activities -->
-
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"
@@ -2734,6 +2603,32 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.applications.WriteSettingsDetails" />
+        </activity>
+
+        <!-- Owlsnest Settings -->
+      	<activity android:name="Settings$OwlsNestSettingsActivity"
+                android:label="@string/custom_title"
+                android:taskAffinity="">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+          <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                     android:value="com.android.settings.aosip.OwlsNestSettings" />
+          <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                     android:resource="@id/owlsnest_settings" />
+      	</activity>
+
+        <!-- PA Pie settings activity. -->
+        <activity android:name="Settings$PieControlSettingsActivity"
+                android:label="@string/pa_pie_control_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.paranoid.PieControl" />
         </activity>
 
     </application>

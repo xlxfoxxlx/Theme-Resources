@@ -29,7 +29,7 @@
         android:gravity="center"
         android:text="@string/loading"
         style="?android:attr/textAppearanceLarge"
-        android:background="@color/loading_message_background"/>
+        android:background="#FFFFFFFF"/>
 
     <ScrollView
         android:id="@+id/scroll_view"

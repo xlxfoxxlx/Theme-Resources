@@ -45,9 +45,6 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.GET_APP_OPS_STATS" />
 
-    <!-- Screen recording -->
-    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
-
     <!-- Networking and telephony -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -116,9 +113,6 @@
     <!-- Needed for WallpaperManager.clear in ImageWallpaper.updateWallpaperLocked -->
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
 
-    <!-- Needed for WallpaperManager.clear in ImageWallpaper.updateWallpaperLocked -->
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
-
     <!-- Recents -->
     <uses-permission android:name="android.permission.BIND_APPWIDGET" />
 
@@ -141,26 +135,16 @@
             android:protectionLevel="signature" />
     <uses-permission android:name="com.android.systemui.permission.SELF" />
 
-    <!-- Kill app permission -->
-    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
-
-    <!-- Weather -->
-    <uses-permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
-
     <!-- Sync tile -->
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-
+    <!-- Weather -->
+    <uses-permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
+    <!-- pie kill app -->
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
     <!-- Reboot -->
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.RECOVERY" />
-
-    <!-- Visualizer -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <!-- Action target -->
-    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
 
     <!-- Themes tile -->
     <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER" />
@@ -196,15 +180,6 @@
             android:process=":screenshot"
             android:exported="false" />
 
-        <receiver android:name=".screenshot.TrashScreenshot"
-                android:exported="true" />
-
-        <!-- started from PhoneWindowManager
-             TODO: Should have an android:permission attribute -->
-        <service android:name=".omni.screenrecord.TakeScreenrecordService"
-            android:process=":screenrecord"
-            android:exported="false" />
-
         <service android:name=".LoadAverageService"
                 android:exported="true" />
 
@@ -235,14 +210,7 @@
                   android:theme="@android:style/Theme.Material.Settings"
                   android:label="@string/systemui_tuner_qs_title"
                   android:process=":tuner"
-                  android:parentActivityName="com.dirtyunicorns.dutweaks.DirtyTweaks"
                   android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                    android:value="com.android.settings.category.system" />
         </activity>
 
         <activity android:name=".tuner.TunerActivity"
@@ -251,12 +219,6 @@
                   android:label="@string/systemui_tuner_statusbar_title"
                   android:process=":tuner"
                   android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                    android:value="com.android.settings.category.system" />
         </activity>
 
         <!-- Alternate Recents -->
@@ -468,7 +430,7 @@
         </receiver>
 
         <activity
-            android:name=".du.LockscreenShortcutsActivity"
+            android:name=".cm.LockscreenShortcutsActivity"
             android:icon="@drawable/tuner"
             android:label="@string/lockscreen_targets_message"
             android:theme="@android:style/Theme.Material.Settings"

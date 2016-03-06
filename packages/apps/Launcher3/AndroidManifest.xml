@@ -156,9 +156,7 @@
             android:name="com.android.launcher3.SettingsActivity"
             android:label="@string/settings_button_text"
             android:autoRemoveFromRecents="true"
-            android:theme="@style/Settings"
-            android:process=":settings_process"
-            android:parentActivityName="com.android.launcher3.Launcher" >
+            android:process=":settings_process">
         </activity>
 
         <!-- Debugging tools -->
