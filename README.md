@@ -1,5 +1,5 @@
 # Theme Resources for AOSiP #
-#         Credit:DU         #
+Credit: DU
 
 This repo's main purpose is to provide an up-to-date zip/repo to make themer's job a bit easier.
 
