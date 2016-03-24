@@ -17,7 +17,7 @@
  */
 -->
 <resources>
-    <drawable name="notification_number_text_color">#ff000000</drawable>
+    <drawable name="notification_number_text_color">#ffffffff</drawable>
     <drawable name="ticker_background_color">#ff1d1d1d</drawable>
     <drawable name="system_bar_background">@color/system_bar_background_opaque</drawable>
     <color name="system_bar_background_opaque">#ff000000</color>
@@ -143,6 +143,7 @@
     <color name="volume_icon_color">#ffffffff</color>
     <color name="volume_settings_icon_color">#7fffffff</color>
     <color name="volume_slider_inactive">#FFB0BEC5</color><!-- blue grey 200 -->
+    <color name="volume_slider_active">@color/system_accent_color</color>
 
     <!-- QS Toast Text color -->
     <color name="quick_settings_toast_color">#ffbe1b</color>

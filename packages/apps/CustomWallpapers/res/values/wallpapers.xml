@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="wallpapers" translatable="false">
+        <item>kronic_1</item>
+        <item>kronic_2</item>
+        <item>kronic_3</item>
+        <item>kronic_4</item>
+        <item>kronic_5</item>
+        <item>kronic_6</item>
+        <item>kronic_7</item>
+        <item>kronic_8</item>
+        <item>kronic_9</item>
+        <item>kronic_10</item>
+        <item>kronic_11</item>
+        <item>kronic_12</item>
+        <item>kronic_13</item>
+        <item>kronic_14</item>
+    </string-array>
+
+    <string-array name="info" translatable="false">
+        <item>Kronic 1 - Elliot Orcholski</item>
+        <item>Kronic 2 - Sean Grondin</item>
+        <item>Kronic 3 - Sean Grondin</item>
+        <item>Kronic 4 - Elliot Orcholski</item>
+        <item>Kronic 5 - Sean Grondin</item>
+        <item>Kronic 6 - PaulWalls</item>
+        <item>Kronic 7 - PaulWalls</item>
+        <item>Kronic 8 - PaulWalls</item>
+        <item>Kronic 9 - PaulWalls</item>
+        <item>Kronic 10 - PaulWalls</item>
+        <item>Kronic 11 - Rinky McBally</item>
+        <item>Kronic 12 - Rinky McBally</item>
+        <item>Kronic 13 - Rinky McBally</item>
+        <item>Kronic 14 - Rinky McBally</item>
+    </string-array>
+</resources>

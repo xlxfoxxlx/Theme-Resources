@@ -16,6 +16,24 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <style name="TextAppearance.StatusBar.Expanded.Date.White">
+        <item name="android:textSize">@dimen/qs_date_collapsed_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="TextAppearance.StatusBar.Expanded.Weather">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="TextAppearance.StatusBar.Expanded.Weather.Detailed">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
     <!-- Slim recents -->
     <style name="card.header_simple_title">
         <item name="android:textSize">@dimen/recent_text_size</item>
