@@ -81,7 +81,7 @@ declare -a values=('all_search_engines.xml' 'appmsg_colors.xml' 'arrays.xml' 'at
 
 declare -a core=('java' 'jni' 'tests')
 
-declare -a theme_packages=('ExactCalculator' 'Calendar' 'CalendarWidget' 'Camera2' 'Contacts' 'ContactsCommon' 'CustomWallpapers' 'DeskClock' 'Dialer' 'DUI' 'Email' 'Gallery2' 'InCallUI'
+declare -a theme_packages=('ExactCalculator' 'Calendar' 'Contacts' 'ContactsCommon' 'CustomWallpapers' 'DeskClock' 'Dialer' 'DUI' 'Gallery2' 'InCallUI'
                            'Launcher3' 'LockClock' 'Messaging' 'MusicFX' 'PhoneCommon' 'Settings' 'Stk' 'ThemeChooser')
 
 cd $WORKING_DIR

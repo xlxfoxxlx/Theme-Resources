@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.cyanogenmod.theme.chooser"
     android:sharedUserId="org.cyanogenmod.themes"
     android:versionCode="7"
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER" />
-    <uses-permission android:name="android.permission.READ_THEMES" />
-    <uses-permission android:name="android.permission.WRITE_THEMES" />
+    <uses-permission android:name="cyanogenmod.permission.ACCESS_THEME_MANAGER" />
+    <uses-permission android:name="cyanogenmod.permission.READ_THEMES" />
+    <uses-permission android:name="cyanogenmod.permission.WRITE_THEMES" />
 
     <!-- The following permissions are used to hijack Google Play notifications
          when a theme is installed -->
@@ -16,6 +17,9 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
 
     <uses-sdk
         android:minSdkVersion="21"

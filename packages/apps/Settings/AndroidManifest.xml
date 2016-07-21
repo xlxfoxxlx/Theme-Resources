@@ -1572,6 +1572,23 @@
                 android:value="true" />
         </activity>
 
+        <activity android:name="Settings$AdvancedStorageSettingsActivity"
+                android:taskAffinity="com.android.settings"
+                android:label="@string/storage_advanced_titlebar"
+                android:parentActivityName="Settings$StorageSettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.deviceinfo.AdvancedStorageSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/storage_settings" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+
         <activity android:name="Settings$PrivateVolumeSettingsActivity"
                 android:label="@string/storage_settings_title"
                 android:taskAffinity="com.android.settings"
@@ -1886,9 +1903,31 @@
                 android:value="com.android.settings.wfd.WifiDisplaySettings" />
         </activity>
 
+        <activity android:name=".aosip.gesture.GestureAnywhereBuilderActivity" />
+        <activity android:name=".aosip.gesture.GestureAnywhereCreateGestureActivity" />   
 
-        <activity android:name=".benzo.gestureanywhere.GestureAnywhereBuilderActivity" />
-        <activity android:name=".benzo.gestureanywhere.GestureAnywhereCreateGestureActivity" />   
+	<!-- Navigation settings activity. -->
+        <activity android:name="Settings$PulseSettingsActivity"
+                android:label="@string/pulse_settings"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.solo.PulseSettings" />
+        </activity>
+	
+	
+	<!-- Color Picker -->
+        <activity android:name="net.margaritov.preference.colorpicker.ColorPickerPreference"
+            android:theme="@style/Theme.SettingsDialog"
+            android:label="@string/color_picker_label"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
         <!-- Development settings -->
 
@@ -2597,7 +2636,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="ccom.android.settings.solo.SmartbarSettings" />
+                android:value="com.android.settings.solo.SmartbarSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/owlsnest_settings" />
         </activity>

@@ -33,5 +33,25 @@
         <item name="windowEnterAnimation">@anim/recent_screen_enter_left</item>
         <item name="windowExitAnimation">@anim/recent_screen_exit_left</item>
     </style>
+
+    <style name="PowerMenuBottomAnimation">
+        <item name="windowEnterAnimation">@anim/slide_in_up</item>
+        <item name="windowExitAnimation">@anim/slide_out_down</item>
+    </style>
+    <style name="PowerMenuTopAnimation">
+        <item name="windowEnterAnimation">@anim/slide_in_down</item>
+        <item name="windowExitAnimation">@anim/slide_out_up</item>
+    </style>
+
+    <!-- Exposed styles for framework activities -->
+    <style name="Theme.Material.Light.Dialog.HeavyWeightSwitcherActivity" />
+    <style name="Theme.Material.Light.Dialog.ChooseAccountActivity" />
+    <style name="Theme.Material.Light.Dialog.ChooseTypeAndAccountActivity" />
+    <style name="Theme.Material.Light.Dialog.ChooseAccountTypeActivity" />
+    <style name="Theme.Material.Light.Dialog.NoActionBar.CantAddAccountActivity" />
+    <style name="Theme.Material.Light.DialogWhenLarge.GrantCredentialsPermissionActivity" />
+    <style name="Theme.Material.Light.Dialog.SyncActivityTooManyDeletes" />
+    <style name="Theme.Material.Light.Dialog.Alert.NetInitiatedActivity" />
+
 </resources>
 
