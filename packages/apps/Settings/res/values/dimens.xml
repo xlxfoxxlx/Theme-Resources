@@ -260,7 +260,6 @@
     <dimen name="shortcut_size">40dp</dimen>
     <dimen name="badge_size">10dp</dimen>
 
-    <!-- Icon pack picker -->
-    <dimen name="alert_dialog_padding_material">20dp</dimen>
-
+    <!-- Shortcur picker -->
+   <dimen name="shortcut_picker_left_padding">40dip</dimen>
 </resources>

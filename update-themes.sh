@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-WORKING_DIR=/home/fox/aosip
+WORKING_DIR=/home/fox/oms
 
 function delete_useless () {
   declare -a array=($@)
@@ -81,8 +81,8 @@ declare -a values=('all_search_engines.xml' 'appmsg_colors.xml' 'arrays.xml' 'at
 
 declare -a core=('java' 'jni' 'tests')
 
-declare -a theme_packages=('ExactCalculator' 'Calendar' 'CalendarWidget' 'Camera2' 'Contacts' 'ContactsCommon' 'CustomWallpapers' 'DeskClock' 'Dialer' 'DUI' 'Email' 'Gallery2' 'InCallUI'
-                           'Launcher3' 'LockClock' 'Messaging' 'MusicFX' 'PhoneCommon' 'Settings' 'Stk' 'ThemeChooser')
+declare -a theme_packages=('ExactCalculator' 'Calendar' 'Camera2' 'Contacts' 'ContactsCommon' 'DeskClock' 'Dialer' 'DUI' 'Email' 'Gallery2' 'InCallUI'
+                           'LockClock' 'Messaging' 'PhoneCommon' 'Settings' 'Stk')
 
 cd $WORKING_DIR
 echo "Removing files so we can clean sync"

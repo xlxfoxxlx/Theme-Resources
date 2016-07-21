@@ -55,6 +55,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -116,6 +117,9 @@
     <!-- Needed for WallpaperManager.clear in ImageWallpaper.updateWallpaperLocked -->
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
 
+    <!-- Needed for WallpaperManager.clear in ImageWallpaper.updateWallpaperLocked -->
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
     <!-- Recents -->
     <uses-permission android:name="android.permission.BIND_APPWIDGET" />
 
@@ -126,6 +130,10 @@
 
     <!-- Screen Capturing -->
     <uses-permission android:name="android.permission.MANAGE_MEDIA_PROJECTION" />
+
+    <!-- Visualizer -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- Assist -->
     <uses-permission android:name="android.permission.ACCESS_VOICE_INTERACTION_SERVICE" />
@@ -138,9 +146,6 @@
             android:protectionLevel="signature" />
     <uses-permission android:name="com.android.systemui.permission.SELF" />
 
-    <!-- weather -->
-    <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
-
     <!-- Visualizer -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -148,8 +153,8 @@
     <!-- Action target -->
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
 
-    <!-- pie kill app -->
-    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+    <!-- Images in navbar -->
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
     <!-- Sync tile -->
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
@@ -161,13 +166,8 @@
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.RECOVERY" />
 
-    <!-- Themes tile -->
-    <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER" />
-    <uses-permission android:name="android.permission.READ_THEMES" />
-    <uses-permission android:name="android.permission.WRITE_THEMES" />
-
-    <!-- Images in navbar -->
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <!-- weather -->
+    <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
 
     <application
         android:name=".SystemUIApplication"
@@ -232,18 +232,33 @@
                   android:excludeFromRecents="true">
         </activity>
 
-        <activity android:name=".tuner.QsActivity"
+        <activity android:name=".tuner.TunerActivity"
+                  android:enabled="true"
+                  android:icon="@drawable/tuner"
+                  android:theme="@android:style/Theme.Material.Settings"
+                  android:label="@string/system_ui_tuner"
+                  android:process=":tuner"
+                  android:exported="true">
+            <!--<intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                    android:value="com.android.settings.category.system" />-->
+        </activity>
+
+        <activity android:name=".tuner.QsTunerActivity"
                   android:enabled="true"
                   android:theme="@android:style/Theme.Material.Settings"
-                  android:label="@string/systemui_tuner_qs_title"
+                  android:label="@string/quick_settings"
                   android:process=":tuner"
                   android:exported="true">
         </activity>
 
-        <activity android:name=".tuner.TunerActivity"
+        <activity android:name=".tuner.StatusBarActivity"
                   android:enabled="true"
                   android:theme="@android:style/Theme.Material.Settings"
-                  android:label="@string/systemui_tuner_statusbar_title"
+                  android:label="@string/status_bar_icons"
                   android:process=":tuner"
                   android:exported="true">
         </activity>
@@ -393,7 +408,7 @@
             android:exported="true"
             android:label="@string/dessert_case"
             android:permission="android.permission.BIND_DREAM_SERVICE"
-            android:enabled="true"
+            android:enabled="false"
             android:process=":sweetsweetdesserts"
             >
             <intent-filter>
@@ -471,5 +486,6 @@
             android:theme="@android:style/Theme.Material.Settings"
             android:exported="true">
         </activity>
+
     </application>
 </manifest>

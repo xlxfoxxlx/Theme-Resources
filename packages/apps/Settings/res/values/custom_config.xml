@@ -15,6 +15,10 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
+    <!-- Fling default long swipe thresholds as percentage of bar width/height-->
+    <item name="config_flingMinLongSwipeThreshold" format="float" type="dimen">0.20</item>
+    <item name="config_flingMaxLongSwipeThreshold" format="float" type="dimen">0.50</item>
 
    <!-- Volume Rocker Wake Support. Some devices do not support (PMU) this.
         Setting to false will disable Volume Rocker Wake support -->
@@ -23,9 +27,4 @@
 <!-- Display Settings -->
     <!-- Font size sample text -->
     <string name="font_size_sample">Font Size</string>
-
-   <!-- Fling default long swipe thresholds as percentage of bar width/height-->
-    <item name="config_flingMinLongSwipeThreshold" format="float" type="dimen">0.20</item>
-    <item name="config_flingMaxLongSwipeThreshold" format="float" type="dimen">0.50</item>
-
 </resources>

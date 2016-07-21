@@ -16,16 +16,6 @@
 
 <resources>
 
-    <style name="Theme.DateTimeSettingsSetupWizard" parent="@android:style/Theme.Material.Light.NoActionBar" />
-
-    <style name="Theme.SettingsLicenseActivity" parent="@android:style/Theme.Material.Light.Panel" />
-
-    <style name="Theme.AppPicker" parent="@android:style/Theme.Material.Light.Dialog" />
-
-    <style name="Theme.SettingsDialog" parent="@android:style/Theme.Material.Light.Dialog.NoActionBar" />
-
-    <style name="Theme.SettingsAlertDialog" parent="@*android:style/Theme.Material.Light.Dialog.Alert" />
-
     <style name="floating_action_button">
         <item name="android:layout_width">@dimen/fab_size</item>
         <item name="android:layout_height">@dimen/fab_size</item>
