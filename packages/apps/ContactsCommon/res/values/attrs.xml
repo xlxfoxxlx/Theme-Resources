@@ -17,6 +17,7 @@
 <resources>
     <declare-styleable name="Theme">
         <attr name="android:textColorSecondary" />
+        <attr name="android:colorPrimary" />
     </declare-styleable>
 
     <declare-styleable name="ContactsDataKind">
@@ -62,6 +63,8 @@
         <attr name="list_item_text_offset_top" format="dimension"/>
         <attr name="list_item_data_width_weight" format="integer"/>
         <attr name="list_item_label_width_weight" format="integer"/>
+        <attr name="list_item_video_call_icon_size" format="dimension"/>
+        <attr name="list_item_video_call_icon_margin" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="ContactBrowser">

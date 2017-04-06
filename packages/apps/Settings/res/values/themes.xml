@@ -18,31 +18,28 @@
     <attr name="fingerprint_layout_theme" format="reference" />
     <attr name="fingerprint_progress_bar_size" format="reference|dimension" />
     <attr name="fingerprint_ring_radius" format="reference|dimension" />
-    <attr name="ic_menu_add" format="reference" />
     <attr name="ic_menu_moreoverflow" format="reference" />
     <attr name="ic_wps" format="reference" />
     <attr name="setup_divider_color" format="reference" />
     <attr name="side_margin" format="reference|dimension" />
     <attr name="wifi_signal_color" format="reference" />
-    <attr name="wifi_signal" format="reference" />
 
     <style name="SetupWizardDisableAppStartingTheme">
         <!-- Theme to disable the app starting window. The actual theme of the activity needs to
              be then set in code via setTheme or onApplyThemeResource. -->
+        <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="android:windowBackground">@null</item>
     </style>
 
-    <style name="SetupWizardTheme" parent="SuwThemeMaterial">
+    <style name="SetupWizardTheme" parent="SuwThemeGlif">
         <!-- For all Alert Dialogs -->
         <item name="android:alertDialogTheme">@style/ThemeOverlay.AlertDialog</item>
-        <item name="android:listPreferredItemPaddingEnd">@dimen/suw_layout_margin_sides</item>
-        <item name="android:listPreferredItemPaddingStart">@dimen/suw_layout_margin_sides</item>
+        <item name="android:colorPrimary">@color/suw_color_accent_dark</item>
         <item name="android:windowBackground">?android:attr/colorBackground</item>
         <item name="@*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
-        <item name="fingerprint_layout_theme">@style/SetupWizardFingerprintLayoutTheme</item>
+        <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
         <item name="fingerprint_progress_bar_size">@dimen/setup_fingerprint_progress_bar_size</item>
         <item name="fingerprint_ring_radius">@dimen/setup_fingerprint_ring_radius</item>
-        <item name="ic_menu_add">@drawable/ic_menu_add_dark</item>
         <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
         <item name="ic_wps">@drawable/ic_wps_dark</item>
         <item name="setup_divider_color">@color/setup_divider_color_dark</item>
@@ -50,6 +47,7 @@
         <item name="wifi_signal_color">@color/setup_wizard_wifi_color_dark</item>
         <item name="wifi_signal">@drawable/wifi_signal</item>
         <item name="preferenceBackgroundColor">?android:attr/colorBackground</item>
+        <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
 
         <!-- LockPatternView colors -->
         <item name="@*android:regularColor">@color/setup_lock_pattern_view_regular_color_dark</item>
@@ -57,17 +55,15 @@
         <item name="@*android:errorColor">@color/setup_lock_pattern_view_error_color_dark</item>
     </style>
 
-    <style name="SetupWizardTheme.Light" parent="SuwThemeMaterial.Light">
+    <style name="SetupWizardTheme.Light" parent="SuwThemeGlif.Light">
         <!-- For all Alert Dialogs -->
         <item name="android:alertDialogTheme">@style/ThemeOverlay.AlertDialog</item>
-        <item name="android:listPreferredItemPaddingEnd">@dimen/suw_layout_margin_sides</item>
-        <item name="android:listPreferredItemPaddingStart">@dimen/suw_layout_margin_sides</item>
+        <item name="android:colorPrimary">@color/suw_color_accent_light</item>
         <item name="android:windowBackground">?android:attr/colorBackground</item>
         <item name="@*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
-        <item name="fingerprint_layout_theme">@style/SetupWizardFingerprintLayoutTheme</item>
+        <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
         <item name="fingerprint_progress_bar_size">@dimen/setup_fingerprint_progress_bar_size</item>
         <item name="fingerprint_ring_radius">@dimen/setup_fingerprint_ring_radius</item>
-        <item name="ic_menu_add">@drawable/ic_menu_add_light</item>
         <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
         <item name="ic_wps">@drawable/ic_wps_light</item>
         <item name="setup_divider_color">@color/setup_divider_color_light</item>
@@ -75,6 +71,7 @@
         <item name="wifi_signal_color">@color/setup_wizard_wifi_color_light</item>
         <item name="wifi_signal">@drawable/wifi_signal</item>
         <item name="preferenceBackgroundColor">?android:attr/colorBackground</item>
+        <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard.Light</item>
 
         <!-- LockPatternView colors -->
         <item name="@*android:regularColor">@color/setup_lock_pattern_view_regular_color_light</item>
@@ -82,32 +79,77 @@
         <item name="@*android:errorColor">@color/setup_lock_pattern_view_error_color_light</item>
     </style>
 
+    <style name="SetupWizardTheme.Transparent" parent="SetupWizardTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="SetupWizardTheme.Light.Transparent" parent="SetupWizardTheme.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay.v14.Material">
+        <item name="@android:preferenceStyle">@style/Preference</item>
+        <item name="@android:editTextPreferenceStyle">@style/EditTextPreference</item>
+        <item name="@dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
+        <item name="@android:preferenceFragmentStyle">@style/PreferenceFragmentStyle</item>
+        <item name="apnPreferenceStyle">@style/ApnPreference</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="PreferenceTheme.SetupWizard" parent="SetupWizardTheme">
+        <item name="preferenceFragmentStyle">@style/SetupWizardPreferenceFragmentStyle</item>
+    </style>
+
+    <style name="PreferenceTheme.SetupWizard.Light" parent="SetupWizardTheme.Light">
+        <item name="preferenceFragmentStyle">@style/SetupWizardPreferenceFragmentStyle</item>
+    </style>
+
+    <style name="SetupWizardPreferenceFragmentStyle" parent="PreferenceFragment.Material">
+        <item name="android:layout">@layout/setup_preference</item>
+    </style>
+
+    <!-- Accessibility portion of Setup Wizard -->
+    <style name="SetupWizardAccessibilityTheme" parent="Theme.SettingsBase">
+        <item name="android:colorPrimary">@color/material_blue_700</item>
+        <item name="android:colorPrimaryDark">@color/material_blue_700</item>
+        <item name="preferenceTheme">@style/PreferenceTheme</item>
+        <item name="switchBarTheme">@style/SetupWizardAccessibilitySwitchBarTheme</item>
+    </style>
+
+    <style name="SetupWizardAccessibilitySwitchBarTheme" parent="ThemeOverlay.SwitchBar.Settings">
+        <item name="switchBarBackgroundColor">@color/material_blue_500</item>
+        <item name="android:colorControlActivated">@android:color/white</item>
+    </style>
+
     <!-- Theme with no local references, used by AccountPreferenceBase where we have to inflate
          layouts against a remote context using our local theme colors. Due to the implementation
          details of Theme, we can't reference any local resources and MUST instead use the values
          directly. So use #ff263238 instead of @color/theme_primary and so on. -->
-    <style name="Theme.SettingsBase" parent="@android:style/Theme.Material.Settings" />
+    <style name="Theme.SettingsBase" parent="@android:style/Theme.DeviceDefault.Settings" />
 
     <style name="Theme.Settings" parent="Theme.SettingsBase">
-        <item name="@*android:preferenceStyle">@style/Preference</item>
+        <item name="preferenceTheme">@style/PreferenceTheme</item>
         <item name="@*android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanelSinglePane</item>
         <item name="@*android:preferencePanelStyle">@style/PreferencePanelSinglePane</item>
         <item name="@*android:preferenceListStyle">@style/PreferenceHeaderListSinglePane</item>
         <item name="@*android:preferenceFragmentListStyle">@style/PreferenceFragmentListSinglePane</item>
-        <item name="@*android:preferenceFragmentStyle">@style/PreferenceFragmentStyle</item>
         <item name="@*android:preferenceFragmentPaddingSide">@dimen/settings_side_margin</item>
-
-        <item name="apnPreferenceStyle">@style/ApnPreference</item>
 
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
         <item name="fingerprint_progress_bar_size">@dimen/fingerprint_progress_bar_size</item>
         <item name="fingerprint_ring_radius">@dimen/fingerprint_ring_radius</item>
-        <item name="ic_menu_add">@drawable/ic_menu_add_dark</item>
         <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_dark</item>
         <item name="ic_wps">@drawable/ic_wps_light</item>
         <item name="wifi_signal">@drawable/wifi_signal</item>
         <item name="wifi_signal_color">?android:attr/colorAccent</item>
         <item name="side_margin">@dimen/settings_side_margin</item>
+        <item name="suwListItemIconColor">?android:attr/colorAccent</item>
 
         <!-- Redefine the ActionBar style for contentInsetStart -->
         <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
@@ -133,6 +175,16 @@
         <item name="switchBarTheme">@style/ThemeOverlay.SwitchBar.SubSettings</item>
     </style>
 
+    <style name="Theme.ProvisioningActivity" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
     <style name="Theme.ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
         <item name="android:contentInsetStart">@dimen/actionbar_contentInsetStart</item>
     </style>
@@ -141,17 +193,19 @@
         <item name="android:contentInsetStart">@dimen/actionbar_subsettings_contentInsetStart</item>
     </style>
 
-    <style name="ThemeOverlay.SwitchBar.Settings" parent="@android:style/ThemeOverlay.Material.Dark.ActionBar">
-        <item name="switchBarMarginStart">@dimen/switchbar_margin_start</item>
-        <item name="switchBarMarginEnd">@dimen/switchbar_margin_end</item>
+    <style name="ThemeOverlay.SwitchBar.Settings" parent="@*android:style/ThemeOverlay.DeviceDefault.Dark.ActionBar.Accent">
+        <item name="switchBarMarginStart">@dimen/switchbar_subsettings_margin_start</item>
+        <item name="switchBarMarginEnd">@dimen/switchbar_subsettings_margin_end</item>
+        <item name="switchBarBackgroundColor">@color/switchbar_background_color</item>
     </style>
 
     <style name="ThemeOverlay.SwitchBar.SubSettings" parent="@android:style/ThemeOverlay.Material.Dark.ActionBar">
         <item name="switchBarMarginStart">@dimen/switchbar_subsettings_margin_start</item>
         <item name="switchBarMarginEnd">@dimen/switchbar_subsettings_margin_end</item>
+        <item name="switchBarBackgroundColor">@color/switchbar_background_color</item>
     </style>
 
-    <style name="Theme.DialogWhenLarge" parent="@*android:style/Theme.Material.Settings.DialogWhenLarge">
+    <style name="Theme.DialogWhenLarge" parent="@*android:style/Theme.DeviceDefault.Settings.DialogWhenLarge">
         <!-- Redefine the ActionBar style for contentInsetStart -->
         <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
 
@@ -171,6 +225,7 @@
     </style>
 
     <style name="Theme.SubSettingsDialogWhenLarge" parent="Theme.DialogWhenLarge">
+        <item name="preferenceTheme">@style/PreferenceTheme</item>
         <item name="android:actionBarWidgetTheme">@null</item>
         <item name="android:actionBarTheme">@android:style/ThemeOverlay.Material.Dark.ActionBar</item>
         <item name="android:actionBarStyle">@style/Theme.ActionBar.SubSettings</item>
@@ -183,21 +238,19 @@
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
-    <style name="Theme.AlertDialog" parent="@*android:style/Theme.Material.Settings.Dialog.Alert">
+    <style name="Theme.AlertDialog" parent="@*android:style/Theme.DeviceDefault.Settings.Dialog.Alert">
         <item name="android:windowSoftInputMode">adjustResize</item>
 
         <!-- Redefine the ActionBar style for contentInsetStart -->
         <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
     </style>
 
-    <style name="Theme.NotificationStation" parent="Theme.SettingsBase">
-        <item name="preferenceBackgroundColor">@android:color/transparent</item>
-    </style>
+    <style name="Theme.NotificationStation" parent="@style/Theme.Settings">
+        <!-- Redefine the ActionBar style for contentInsetStart -->
+        <item name="android:actionBarStyle">@style/Theme.ActionBar.SubSettings</item>
+        <item name="@*android:actionBarSize">@dimen/actionbar_size</item>
 
-    <!-- Used to color the switch bar controls -->
-    <style name="ThemeOverlay.SwitchBar" parent="@android:style/ThemeOverlay">
-        <!-- Used by controls, e.g. CheckBox, ProgressBar, etc. -->
-        <item name="android:colorAccent">@color/switch_accent_color</item>
+        <item name="preferenceBackgroundColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.ConfirmDeviceCredentials" parent="Theme.SubSettings">
@@ -205,12 +258,10 @@
         <item name="confirmDeviceCredentialsTopMargin">16dp</item>
     </style>
 
-    <style name="Theme.ConfirmDeviceCredentialsDark" parent="@android:style/Theme.Material">
-        <item name="android:colorPrimary">@*android:color/material_blue_grey_900</item>
-        <item name="android:colorPrimaryDark">@*android:color/material_blue_grey_950</item>
+    <style name="Theme.ConfirmDeviceCredentialsDark" parent="@android:style/Theme.DeviceDefault">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/confirm_device_credential_dark_background</item>
+        <item name="android:windowBackground">?android:attr/colorPrimary</item>
 
         <item name="confirmDeviceCredentialsSideMargin">32dp</item>
         <item name="confirmDeviceCredentialsTopMargin">32dp</item>
@@ -222,18 +273,40 @@
 
         <item name="android:windowAnimationStyle">@style/ConfirmDeviceCredentialsAnimationStyle</item>
     </style>
-
-    <style name="Theme.FingerprintEnroll" parent="@*android:style/Theme.Material.Settings.NoActionBar">
-        <item name="android:windowAnimationStyle">@style/Animation.SuwWindowAnimation</item>
+    <style name="Theme.ConfirmDeviceCredentialsWork" parent="Theme.ConfirmDeviceCredentialsDark">
+        <item name="@*android:regularColor">@*android:color/white</item>
+        <item name="android:colorAccent">@*android:color/white</item>
     </style>
 
-    <style name="Theme.ColorPickerDialog" parent="@android:style/Theme.Material">
-        <item name="android:colorBackground">@*android:color/darkkat_blue_grey</item>
-        <item name="android:windowBackground">@null</item>
+    <style name="Theme.FingerprintEnroll" parent="SuwThemeGlif.Light">
+        <item name="android:textAppearanceListItemSmall">@android:style/TextAppearance.Material.Body1</item>
+
+        <item name="suwDividerCondition">both</item>
+        <item name="suwListItemIconColor">?android:attr/colorAccent</item>
+    </style>
+
+    <style name="FallbackHome" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowShowWallpaper">true</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:colorPrimary">@color/theme_primary</item>
-        <item name="android:colorPrimaryDark">@color/theme_primary_dark</item>
-        <item name="android:colorAccent">@color/theme_accent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+    </style>
+
+    <style name="FallbackHome.SetupWizard" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/fallback_home_unprovisioned_background</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+    </style>
+
+    <style name="FallbackHomeProgressBar" parent="FallbackHome">
+        <item name="android:colorControlActivated">?android:attr/textColorPrimary</item>
     </style>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/* apps/common/assets/default/default/skins/StatusBar.xml
 **
 ** Copyright 2011, The Android Open Source Project
 **
@@ -20,7 +19,7 @@
 <!-- extends LinearLayout -->
 <com.android.systemui.statusbar.SignalClusterView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:systemui="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/signal_cluster"
     android:layout_height="match_parent"
     android:layout_width="wrap_content"
     android:gravity="center_vertical"
@@ -43,7 +42,6 @@
             android:id="@+id/ethernet"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            systemui:hasOverlappingRendering="false"
             />
         <com.android.systemui.statusbar.AlphaOptimizedImageView
             android:theme="@style/DualToneDarkTheme"
@@ -51,9 +49,15 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:alpha="0.0"
-            systemui:hasOverlappingRendering="false"
             />
     </FrameLayout>
+     <ImageView android:id="@+id/ims_over_wifi"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/vowifi"
+        />
     <FrameLayout
         android:id="@+id/wifi_combo"
         android:layout_height="wrap_content"
@@ -64,7 +68,6 @@
             android:id="@+id/wifi_signal"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            systemui:hasOverlappingRendering="false"
             />
         <com.android.systemui.statusbar.AlphaOptimizedImageView
             android:theme="@style/DualToneDarkTheme"
@@ -72,13 +75,28 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:alpha="0.0"
-            systemui:hasOverlappingRendering="false"
+            />
+        <com.android.systemui.statusbar.AlphaOptimizedImageView
+            android:theme="@style/DualToneLightTheme"
+            android:id="@+id/wifi_inout"
+            android:layout_height="17dp"
+            android:layout_width="18.41dp"
+            android:layout_gravity="center|bottom"
             />
     </FrameLayout>
     <View
         android:id="@+id/wifi_signal_spacer"
-        android:layout_width="4dp"
+        android:layout_width="@dimen/status_bar_wifi_signal_spacer_width"
         android:layout_height="4dp"
+        android:visibility="gone"
+        />
+    <ImageView
+        android:id="@+id/ims_hd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:src="@drawable/volte"
         android:visibility="gone"
         />
     <LinearLayout
@@ -98,7 +116,6 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:src="@drawable/stat_sys_no_sims"
-            systemui:hasOverlappingRendering="false"
             />
         <com.android.systemui.statusbar.AlphaOptimizedImageView
             android:theme="@style/DualToneDarkTheme"
@@ -107,12 +124,11 @@
             android:layout_width="wrap_content"
             android:src="@drawable/stat_sys_no_sims"
             android:alpha="0.0"
-            systemui:hasOverlappingRendering="false"
             />
     </FrameLayout>
     <View
         android:id="@+id/wifi_airplane_spacer"
-        android:layout_width="4dp"
+        android:layout_width="@dimen/status_bar_airplane_spacer_width"
         android:layout_height="4dp"
         android:visibility="gone"
         />

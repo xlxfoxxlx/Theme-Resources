@@ -38,7 +38,7 @@
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.mail" />
-    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="18"></uses-sdk>
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23"></uses-sdk>
 
     <application android:name="CalendarApplication"
             android:label="@string/app_label" android:icon="@mipmap/ic_launcher_calendar"
@@ -140,6 +140,10 @@
 
         <activity android:name="CalendarSettingsActivity" android:label="@string/preferences_title"
             android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name="com.android.calendar.RequestPermissionsActivity" >
+        </activity>
+        <activity android:name="com.android.calendar.RequestPermissionsActivityBase" >
+        </activity>
 
         <!-- Declarations for search -->
         <!-- Make all activities a searchable context -->
@@ -154,6 +158,14 @@
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
             <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+
+        <activity android:name="DeleteEventsActivity"
+            android:parentActivityName="com.android.calendar.AllInOneActivity"
+            android:theme="@style/CalendarTheme.WithActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.calendar.AllInOneActivity" />
         </activity>
 
         <provider android:name=".CalendarRecentSuggestionsProvider"
@@ -214,6 +226,7 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.android.calendar.APPWIDGET_UPDATE" />
+                <action android:name="com.android.calendar.event.change" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
