@@ -106,7 +106,7 @@
          button -->
     <dimen name="floating_action_button_list_bottom_padding">88dp</dimen>
     <!-- Right margin of the floating action button -->
-    <dimen name="floating_action_button_margin_right">16dp</dimen>
+    <dimen name="floating_action_button_margin_right">32dp</dimen>
     <!-- Bottom margin of the floating action button -->
     <dimen name="floating_action_button_margin_bottom">16dp</dimen>
     <!-- Offset of bottom margin of the floating action button used when dialpad is up -->
@@ -117,11 +117,17 @@
     <!-- Size of text in tabs. -->
     <dimen name="tab_text_size">14sp</dimen>
     <dimen name="tab_elevation">2dp</dimen>
+    <dimen name="tab_unread_count_background_size">16dp</dimen>
+    <dimen name="tab_unread_count_background_radius">2dp</dimen>
+    <dimen name="tab_unread_count_margin_left">10dp</dimen>
+    <dimen name="tab_unread_count_margin_top">2dp</dimen>
+    <dimen name="tab_unread_count_text_size">12sp</dimen>
+    <dimen name="tab_unread_count_text_padding">2dp</dimen>
 
     <!-- Padding around the icon in the search box. -->
     <dimen name="search_box_icon_margin">4dp</dimen>
     <!-- Size of the icon (voice search, back arrow) in the search box. -->
-    <dimen name="search_box_icon_size">28dp</dimen>
+    <dimen name="search_box_icon_size">36dp</dimen>
     <!-- Size of the close icon.-->
     <dimen name="search_box_close_icon_size">56dp</dimen>
     <!-- Padding around the close button. It's visible size without padding is 24dp. -->
@@ -161,4 +167,9 @@
     <dimen name="call_subject_dialog_secondary_text_size">14sp</dimen>
     <!-- Row padding for call subject history items. -->
     <dimen name="call_subject_history_item_padding">15dp</dimen>
+
+    <dimen name="video_calling_dialoglayout_margin">30dp</dimen>
+    <dimen name="video_calling_dialoglayout_checkbox_marginleft">10dp</dimen>
+    <dimen name="video_calling_dialoglayout_checkbox_marginbottom">24dp</dimen>
+    <dimen name="video_calling_dialoglayout_text_size">18sp</dimen>
 </resources>

@@ -28,8 +28,8 @@
             android:id="@+id/spacer"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#00000000" />
+            android:layout_weight="4"
+            android:background="@color/background_color_transparent" />
 
         <!-- Dialpad shadow -->
         <View
@@ -40,7 +40,7 @@
         <RelativeLayout
             android:layout_height="match_parent"
             android:layout_width="0dp"
-            android:layout_weight="1">
+            android:layout_weight="6">
 
             <include layout="@layout/dialpad_view"
                  android:layout_height="match_parent"
@@ -60,7 +60,7 @@
             <!-- Margin bottom and alignParentBottom don't work well together, so use a Space instead. -->
             <Space android:id="@+id/dialpad_floating_action_button_margin_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="8dp"
+                android:layout_height="@dimen/floating_action_button_margin_bottom"
                 android:layout_alignParentBottom="true" />
 
             <FrameLayout
@@ -80,6 +80,17 @@
                     android:src="@drawable/fab_ic_call"/>
 
             </FrameLayout>
+
+            <TextView
+                android:id="@+id/dialpad_floating_operator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/dialpad_floating_action_button_margin_bottom"
+                android:layout_toRightOf="@+id/dialpad_floating_action_button_container"
+                android:textColor="?attr/call_log_secondary_text_color"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
