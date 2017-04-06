@@ -81,25 +81,9 @@ declare -a values=('all_search_engines.xml' 'appmsg_colors.xml' 'arrays.xml' 'at
 
 declare -a core=('java' 'jni' 'tests')
 
-declare -a theme_packages=('ExactCalculator' 'Calendar' 'Contacts' 'ContactsCommon' 'CustomWallpapers' 'DeskClock' 'Dialer' 'DUI' 'Gallery2' 'InCallUI'
-                           'Launcher3' 'LockClock' 'Messaging' 'MusicFX' 'PhoneCommon' 'Settings' 'Stk' 'ThemeChooser')
+declare -a theme_packages=('ExactCalculator' 'Calendar' 'Contacts' 'ContactsCommon' 'DeskClock' 'Dialer' 'DUI' 'Gallery2' 'CalendarWidget' 'FMRadio'
+                           'Launcher3' 'LockClock' 'Messaging' 'MusicFX' 'PhoneCommon' 'Settings' 'Stk' 'OmniSwitch' 'OmniStyle' 'SlimRecents' 'OwlsNest')
 
-cd $WORKING_DIR
-echo "Removing files so we can clean sync"
-delete_useless ${root[@]}
-cd .repo
-rm -rf local_manifests
-cd ..
-echo "Repo Syncing........."
-repo sync >> /dev/null
-if [ $? -eq 0 ]; then
-  echo "Repo Sync success"
-else
-  echo "Repo Sync failure"
-  exit 1
-fi
-echo "Cloning Theme Resources repo"
-git clone https://github.com/AOSIP/Theme-Resources.git
 echo "Removing unneeded files"
 cd frameworks/base
 delete_useless ${frameworks[@]}

@@ -25,4 +25,5 @@
             android:src="@drawable/aosip_about"
             android:scaleType="centerInside"
             android:adjustViewBounds="true" />
+   
 </LinearLayout>

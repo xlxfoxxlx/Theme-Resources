@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2016 The Android Open Source Illusion Project
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <resources>
-    <!-- DSLV colors -->
-    <color name="dslv_icon_dark">#ff009688</color>
-    <color name="dslv_float_cackground_color">#ff1b1f23</color>
-
-    <!-- Gesture Anywhere -->
-    <color name="ga_gesture_color">@android:color/holo_blue_light</color>
-
-    <!-- Owlsnest tab -->
-    <color name="owlsnest_tab_text_color">@color/text_color_white</color>
-    <color name="owlsnest_indicator_color">@color/owlsnest_tab_text_color</color>
-    <color name="owlsnest_underline_color">@color/theme_accent</color>
-    <color name="owlsnest_divider_color">@color/owlsnest_underline_color</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="text_color_white">@android:color/white</color>
+    <color name="theme_accent">#ff4285f4</color>
+    <color name="white">#FFF</color>
 
     <!-- Expanded desktop -->
     <drawable name="expanded_item_bg_activated">#ffEEEEEE</drawable>
     <drawable name="expanded_item_bg">@android:color/background_light</drawable>
     <color name="expanded_button_color_normal">#4CAF50</color>
     <color name="expanded_button_color_close">#F44336</color>
+    <color name="expanded_app_title_color">#000000</color>
 
-    <!-- BlackList colors -->
-    <color name="blacklist_enabled">#DD2C00</color>
-    <color name="blacklist_disabled">#D7D7D7</color>
-
-    <!--smartbar-->
-    <color name="white">#FFF</color>
-    <color name="background_tab_pressed">#1AFFFFFF</color>
-    <color name="material_deep_teal_500">@*android:color/material_deep_teal_500</color>
-    <color name="icon_tint_color">@color/material_deep_teal_500</color>
-    <color name="theme_accent">#ff009688</color>
-    <color name="action_picker_fab_background">@color/theme_accent</color>
-
-    <!-- DPI Alert Dialog Text Colors -->
-    <color name="dpi_text_color">@android:color/black</color>
+    <!-- Settings switchbar background -->
+    <color name="switchbar_background_color">?android:attr/colorSecondary</color>
 
 </resources>
-

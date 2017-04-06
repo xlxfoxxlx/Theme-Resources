@@ -27,5 +27,5 @@
     <color name="colorPrimary">#3462b3</color>
     <color name="colorPrimaryDark">#294d8c</color>
     <color name="colorAccent">#3462b3</color>
-
+    <color name="white">#ffffffff</color>
 </resources>

@@ -41,8 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:paddingTop="5dp"
         android:layout_toEndOf="@+id/icon"
-        android:layout_toStartOf="@+id/icon_alternate"
+        android:layout_toStartOf="@+id/third_icon"
         android:textColor="@color/quickcontact_entry_header_text_color"
         android:textAlignment="viewStart"
         android:layout_marginBottom="@dimen/expanding_entry_card_header_margin_bottom" />
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
         android:layout_toEndOf="@+id/icon_sub_header"
-        android:layout_toStartOf="@+id/icon_alternate"
+        android:layout_toStartOf="@+id/third_icon"
         android:textAlignment="viewStart"
         android:textColor="@color/quickcontact_entry_sub_header_text_color" />
 
@@ -66,15 +67,26 @@
         android:layout_marginEnd="@dimen/expanding_entry_card_item_sub_header_icon_margin_right"
         android:layout_marginBottom="@dimen/expanding_entry_card_item_sub_header_icon_margin_bottom" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text"
+        android:orientation="horizontal"
         android:layout_below="@+id/sub_header"
         android:layout_toEndOf="@+id/icon_text"
-        android:layout_toStartOf="@+id/icon_alternate"
+        android:layout_toStartOf="@+id/third_icon"
         android:textAlignment="viewStart"
-        android:textColor="@color/quickcontact_entry_sub_header_text_color" />
+        android:textColor="@color/quickcontact_entry_sub_header_text_color">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:id="@+id/home"/>
+    </LinearLayout>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -86,20 +98,21 @@
         android:layout_marginEnd="@dimen/expanding_entry_card_item_text_icon_margin_right" />
 
      <ImageView
-         android:id="@+id/icon_alternate"
+         android:id="@+id/third_icon"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentTop="true"
-         android:layout_toStartOf="@+id/third_icon"
+         android:layout_toStartOf="@+id/icon_alternate"
          android:layout_alignWithParentIfMissing="true"
          android:visibility="gone"
          android:background="?android:attr/selectableItemBackgroundBorderless"
          android:paddingTop="@dimen/expanding_entry_card_item_icon_margin_top"
-         android:paddingBottom="@dimen/expanding_entry_card_item_alternate_icon_margin_bottom"
-         android:layout_marginStart="@dimen/expanding_entry_card_item_alternate_icon_start_margin" />
+         android:paddingBottom="@dimen/expanding_entry_card_item_icon_margin_bottom"
+         android:paddingLeft="@dimen/expanding_entry_card_item_icon_margin_left"
+         android:paddingRight="@dimen/expanding_entry_card_item_icon_margin_right"/>
 
      <ImageView
-         android:id="@+id/third_icon"
+         android:id="@+id/icon_alternate"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentEnd="true"
@@ -107,6 +120,7 @@
          android:visibility="gone"
          android:background="?android:attr/selectableItemBackgroundBorderless"
          android:paddingTop="@dimen/expanding_entry_card_item_icon_margin_top"
-         android:paddingBottom="@dimen/expanding_entry_card_item_alternate_icon_margin_bottom"
-         android:layout_marginStart="@dimen/expanding_entry_card_item_alternate_icon_start_margin" />
+         android:paddingBottom="@dimen/expanding_entry_card_item_icon_margin_bottom"
+         android:paddingLeft="@dimen/expanding_entry_card_item_icon_margin_left"
+         android:paddingRight="@dimen/expanding_entry_card_item_icon_margin_right"/>
 </view>
